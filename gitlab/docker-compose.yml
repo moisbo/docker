@@ -1,0 +1,19 @@
+instance:
+  image: 'gitlab/gitlab-ce:latest'
+  restart: always
+  hostname: 'localhost'
+  environment:
+    GITLAB_OMNIBUS_CONFIG: |
+      external_url 'https://localhost'
+      gitlab_port 443
+      gitlab_ssh_port 22
+      nginx_listen_port 80
+      nginx_listen_https false
+  ports:
+    - '80:10080'
+    - '443:443'
+    - '10022:10022'
+  volumes:
+    - '/Users/moises/docker/gitlab/config:/etc/gitlab'
+    - '/Users/moises/docker/gitlab/logs:/var/log/gitlab'
+    - '/Users/moises/docker/gitlab/data:/var/opt/gitlab'
