@@ -4,11 +4,7 @@ instance:
   hostname: 'localhost'
   environment:
     GITLAB_OMNIBUS_CONFIG: |
-      external_url 'https://localhost'
-      gitlab_port 443
-      gitlab_ssh_port 22
-      nginx_listen_port 80
-      nginx_listen_https false
+      external_url 'http://localhost:10080'
   ports:
     - '80:10080'
     - '443:443'
